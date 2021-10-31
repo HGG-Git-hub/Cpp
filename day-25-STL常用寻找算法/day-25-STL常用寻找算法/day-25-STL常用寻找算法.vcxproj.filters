@@ -29,5 +29,8 @@
     <ClCompile Include="查找-adjacent_find.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="查找-binary_search.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
