@@ -1,37 +1,37 @@
-#include"speechManager.h"
+ï»¿#include"speechManager.h"
 int main() 
 {
-	//ÊµÀı»¯Ò»¸ö¶ÔÏó
+	//å®ä¾‹åŒ–ä¸€ä¸ªå¯¹è±¡
 	SpeechManager Sm;
 
-	//²âÊÔ12ÃûÑ¡ÊÖµÄ´´½¨´úÂë
+	//æµ‹è¯•12åé€‰æ‰‹çš„åˆ›å»ºä»£ç 
 	/*for (map<int, Speaker>::iterator it = Sm.m_Speaker.begin(); it != Sm.m_Speaker.end(); it++)
 	{
-		cout << "Ñ¡ÊÖ±àºÅ£º" << it->first << " ";
-		cout << "Ñ¡ÊÖĞÕÃû£º" << it->second.m_name << " ";
-		cout << "Ñ¡ÊÖµÃ·Ö£º" << it->second.m_score[0] << endl;
+		cout << "é€‰æ‰‹ç¼–å·ï¼š" << it->first << " ";
+		cout << "é€‰æ‰‹å§“åï¼š" << it->second.m_name << " ";
+		cout << "é€‰æ‰‹å¾—åˆ†ï¼š" << it->second.m_score[0] << endl;
 	}*/
 
 
 	int choice = 0;
 	while(true) 
 	{
-		//Í¨¹ı¶ÔÏóÀ´µ÷ÓÃ³ÉÔ±º¯Êı
+		//é€šè¿‡å¯¹è±¡æ¥è°ƒç”¨æˆå‘˜å‡½æ•°
 		Sm.show_Menu();
 
-		cout << "ÇëÊäÈëÄúµÄÑ¡Ôñ£º" << endl;
+		cout << "è¯·è¾“å…¥æ‚¨çš„é€‰æ‹©ï¼š" << endl;
 		cin >> choice;
 		switch (choice)
 		{
-		case 1://¿ªÊ¼Ñİ½²
+		case 1://å¼€å§‹æ¼”è®²
 			Sm.startSpeech();
 			break;
-		case 2://²é¿´Íù½ì
+		case 2://æŸ¥çœ‹å¾€å±Š
 			//Sm.loadRecord();
 			break;
-		case 3://Çå¿Õ±ÈÈü
+		case 3://æ¸…ç©ºæ¯”èµ›
 			break;
-		case 0://ÍË³öÏµÍ³
+		case 0://é€€å‡ºç³»ç»Ÿ
 			Sm.exitSystem();
 			break;
 		default:
