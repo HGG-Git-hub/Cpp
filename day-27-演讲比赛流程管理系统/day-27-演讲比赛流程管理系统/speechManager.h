@@ -1,4 +1,4 @@
-#pragma once
+ï»¿#pragma once
 #include"speaker.h"
 #include<iostream>
 #include<vector>
@@ -9,56 +9,60 @@
 #include<numeric>
 #include<string>
 #include<fstream>
+#include<ctime>
 using namespace std;
 
-//Éè¼ÆÑÝ½²±ÈÈü¹ÜÀíÀà
+//è®¾è®¡æ¼”è®²æ¯”èµ›ç®¡ç†ç±»
 class SpeechManager 
 {
 public:
-	//µÚÒ»ÂÖµÄÑ¡ÊÖ±àºÅÈÝÆ÷
+	//ç¬¬ä¸€è½®çš„é€‰æ‰‹ç¼–å·å®¹å™¨
 	vector<int>v1;
-	//µÚÒ»ÂÖ½ú¼¶µÄÑ¡ÊÖ±àºÅÈÝÆ÷
+	//ç¬¬ä¸€è½®æ™‹çº§çš„é€‰æ‰‹ç¼–å·å®¹å™¨
 	vector<int>v2;
-	//Ê¤³öµÄÑ¡ÊÖ±àºÅÈÝÆ÷
+	//èƒœå‡ºçš„é€‰æ‰‹ç¼–å·å®¹å™¨
 	vector<int>vVictory;
-	//´æ·Å±àºÅÒÔ¼°¶ÔÓ¦Ñ¡ÊÖµÄÈÝÆ÷
+	//å­˜æ”¾ç¼–å·ä»¥åŠå¯¹åº”é€‰æ‰‹çš„å®¹å™¨
 	map<int, Speaker>m_Speaker;
-	//´æ·ÅÍù½ì¼ÇÂ¼µÄÈÝÆ÷
+	//å­˜æ”¾å¾€å±Šè®°å½•çš„å®¹å™¨
 	map<int,vector<string>>m_Record;
-	//¼ÇÂ¼±ÈÈüÂÖÊý
+	//è®°å½•æ¯”èµ›è½®æ•°
 	int index;
 
 public:
-	//ÒÔ±¸²»Ê±Ö®Ðè
-	//¹¹Ôìº¯ÊýµÄÉùÃ÷
+	//ä»¥å¤‡ä¸æ—¶ä¹‹éœ€
+	//æž„é€ å‡½æ•°çš„å£°æ˜Ž
 	SpeechManager();
 	
-	//ÏÔÊ¾²Ëµ¥º¯ÊýµÄÉùÃ÷
+	//æ˜¾ç¤ºèœå•å‡½æ•°çš„å£°æ˜Ž
 	void show_Menu();
-	//ÍË³ö²Ëµ¥º¯ÊýµÄÉùÃ÷
+	//é€€å‡ºèœå•å‡½æ•°çš„å£°æ˜Ž
 	void exitSystem();
 	
-	//³õÊ¼»¯ÈÝÆ÷ºÍÊôÐÔµÄº¯ÊýÉùÃ÷
+	//åˆå§‹åŒ–å®¹å™¨å’Œå±žæ€§çš„å‡½æ•°å£°æ˜Ž
 	void initSpeech();
-	//´´½¨12ÃûÑ¡ÊÖµÄº¯ÊýÉùÃ÷
+	//åˆ›å»º12åé€‰æ‰‹çš„å‡½æ•°å£°æ˜Ž
 	void createSpeaker();
 	
-	//¿ªÊ¼±ÈÈüµÄº¯ÊýÉùÃ÷
+	//å¼€å§‹æ¯”èµ›çš„å‡½æ•°å£°æ˜Ž
 	void startSpeech();
-	//³éÇ©º¯ÊýµÄÉùÃ÷
+	//æŠ½ç­¾å‡½æ•°çš„å£°æ˜Ž
 	void speechDraw();
-	//±ÈÈüº¯ÊýµÄÉùÃ÷
+	//æ¯”èµ›å‡½æ•°çš„å£°æ˜Ž
 	void speechContest();
-	//½ú¼¶·ÖÊýµÄº¯ÊýÉùÃ÷
+	//æ™‹çº§åˆ†æ•°çš„å‡½æ•°å£°æ˜Ž
 	void showScore();
-	//±ÈÈüÐÅÏ¢±£´æµÄº¯ÊýÉùÃ÷
+	//æ¯”èµ›ä¿¡æ¯ä¿å­˜çš„å‡½æ•°å£°æ˜Ž
 	void saveRecord();
-	//¶ÁÈ¡¼ÇÂ¼ÐÅÏ¢µÄº¯ÊýÉùÃ÷
+	//è¯»å–è®°å½•ä¿¡æ¯çš„å‡½æ•°å£°æ˜Ž
 	void loadRecord();
-	//ÅÐ¶ÏÎÄ¼þÊÇ·ñÎª¿ÕµÄ±êÖ¾
+	//åˆ¤æ–­æ–‡ä»¶æ˜¯å¦ä¸ºç©ºçš„æ ‡å¿—
 	bool fileIsEmpty;
+	//ä¿å­˜å¾€å±Šè®°å½•çš„å‡½æ•°å£°æ˜Ž
+	void showRecord();
+	//æ¸…ç©ºè®°å½•çš„å‡½æ•°å£°æ˜Ž
+	void clearRecord();
 
-	
-	//Îö¹¹º¯ÊýµÄÉùÃ÷
+	//æžæž„å‡½æ•°çš„å£°æ˜Ž
 	~SpeechManager();
 };

@@ -1,6 +1,8 @@
 ﻿#include"speechManager.h"
 int main() 
 {
+	//随机数种子
+	srand((unsigned)time(NULL));
 	//实例化一个对象
 	SpeechManager Sm;
 
@@ -11,7 +13,6 @@ int main()
 		cout << "选手姓名：" << it->second.m_name << " ";
 		cout << "选手得分：" << it->second.m_score[0] << endl;
 	}*/
-
 
 	int choice = 0;
 	while(true) 
@@ -27,9 +28,10 @@ int main()
 			Sm.startSpeech();
 			break;
 		case 2://查看往届
-			//Sm.loadRecord();
+			Sm.showRecord();
 			break;
 		case 3://清空比赛
+			Sm.clearRecord();
 			break;
 		case 0://退出系统
 			Sm.exitSystem();
