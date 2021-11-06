@@ -1,5 +1,7 @@
 ﻿#pragma once
 #include<iostream>
+#include<string>
+#include<fstream>
 using namespace std;
 //身份抽象基类
 /*抽象基类不需要实现，在子类中实现*/
