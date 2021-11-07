@@ -24,26 +24,26 @@ void managerMenu(Identity*& manager01)
 		if (select == 1)
 		{
 			//调用添加账号的函数
-			cout << "添加账号" << endl;
+			//cout << "添加账号" << endl;
 			man->add_Person();
 		}
 		else if (select == 2) 
 		{
 			//调用查看账号的函数
-			cout << "查看账号" << endl;
-			void show_Person();
+			//cout << "查看账号" << endl;
+			man->show_Person();
 		}
 		else if (select == 3) 
 		{
 			//调用查看机房信息的函数
-			cout << "查看机房信息" << endl;
-			void show_Computer();
+			//cout << "查看机房信息" << endl;
+			man->show_Computer();
 		}
 		else if (select == 4) 
 		{
 			//调用清空预约记录的函数
-			cout << "清空预约记录" << endl;
-			void clear_File();
+			//cout << "清空预约记录" << endl;
+			man->clear_File();
 		}
 		else 
 		{
@@ -164,6 +164,7 @@ void LoginIn(string fileName, int type)
 	system("cls");
 	return;
 }
+
 int main() 
 {
 	int select = 0;//用于接收用户的输入
@@ -180,7 +181,7 @@ int main()
 		cout << "\t\t|		0.退  出	   	   |\n" << endl;
 		cout << "\t\t--------------------------------------------\n" << endl;
 		cout << "请输入您的选择：";
-
+		
 		cin >> select;//进行接收
 
 		if (cin.good() == 1) //判断输入的数据是否为整型
@@ -211,10 +212,8 @@ int main()
 		}
 		else 
 		{
-			cout << "输入有误，请重新输入！" << endl;
-			system("pause");
-			system("cls");
-		}	
+			cout << "请输入对应的数字！" << endl;
+		}
 	}
 	system("pause");
 	return 0;
