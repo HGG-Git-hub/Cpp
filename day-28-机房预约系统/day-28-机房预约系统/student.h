@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include"identity.h"
 #include"computerRoom.h"
+#include"orderFile.h"
 #include<string>
 #include<vector>
 #include<fstream>

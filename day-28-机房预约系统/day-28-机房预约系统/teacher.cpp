@@ -1,5 +1,4 @@
 ﻿#include"teacher.h"
-
 //默认构造
 teacher::teacher() 
 {
