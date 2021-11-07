@@ -7,7 +7,6 @@
 #include"student.h"
 using namespace std;
 //进入管理员的子菜单
-
 /*引用的方式将管理员传入，通过父类指针接收*/
 void managerMenu(Identity*& manager01)
 {
@@ -55,6 +54,51 @@ void managerMenu(Identity*& manager01)
 		}
 	}
 }
+
+
+//进入学生的子菜单
+/*引用的方式将管理员传入，通过父类指针接收*/
+void studentMenu(Identity*& student01) 
+{
+	while (true)
+	{
+		//父类指针调用调用管理员子菜单的函数
+		/*父类指针只能调用共有的属性和函数*/
+		student01->operMenu();
+		//将父类指针转化为为子类指针，调用子类其他的函数
+		student* stu = (student*)student01;
+		int select = 0;
+		cin >> select;
+		if (select == 1) //申请预约
+		{
+			stu->apply_Order();
+		}
+		else if (select==2) //查看自身预约
+		{
+			stu->show_My_Order();
+		}
+		else if (select == 3) //查看全部预约
+		{
+			stu->show_All_Order();
+		}
+		else if (select == 4) //取消预约
+		{
+			stu->cancel_Order();
+		}
+		else
+		{
+			//注销登录
+			delete student01;
+			cout << "注销成功~" << endl;
+			system("pause");
+			system("cls");
+			return;
+		}
+	}
+}
+
+
+
 //登录功能   参数1：操作的文件名，参数2：操作的身份类型
 void LoginIn(string fileName, int type) 
 {
@@ -110,7 +154,7 @@ void LoginIn(string fileName, int type)
 				//成功后在堆区创建该学生
 				person = new student(id, name, pwd);
 				//进入学生菜单
-				/*暂未实现*/
+				studentMenu(person);
 				return;
 			}
 		}
