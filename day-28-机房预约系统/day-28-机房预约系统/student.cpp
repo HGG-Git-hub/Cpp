@@ -90,8 +90,7 @@ void student::apply_Order()
 	cout << "审核中~" << endl;
 
 	//将预约信息写入到预约文件中
-	ofstream ofs;
-	ofs.open(ORDER_FILE, ios::app);//追加方式写入
+	ofstream ofs(ORDER_FILE, ios::app);//追加方式写入
 	ofs << "date:" << date << " " << "interval:" << interval << " "
 		<< "Stu_Id:" << this->m_Id << " "
 		<< "Stu_name:" << this->m_name << " "
@@ -115,12 +114,12 @@ void student::show_My_Order()
 	}
 	for (int i = 0; i < of.m_Size; i++) 
 	{
-		if (this->m_Id == atoi(of.m_Order_Date[i]["stuId"].c_str())) 
+		if (atoi(of.m_Order_Date[i]["Stu_Id"].c_str()) == this->m_Id) 
 		{
-			cout << "预约日期： 周" << of.m_Order_Date[i]["date"];
-			cout << "时间段：" << (of.m_Order_Date[i]["interval"] == "1" ? "上午" : "下午");
-			cout << "机房号：" << of.m_Order_Date[i]["roomId"];
-			string status = "状态: ";
+			cout << "预约日期: 周 " << of.m_Order_Date[i]["date"];
+			cout << " 时间段：" << (of.m_Order_Date[i]["interval"] == "1" ? "上午" : "下午");
+			cout << " 机房号：" << of.m_Order_Date[i]["room"];
+			string status = " 状态: ";
 			//0 取消预约 1 审核中 2 已预约 -1 预约失败
 			if (of.m_Order_Date[i]["status"] == "1")
 			{
