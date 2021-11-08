@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include"identity.h"
-
+#include<string>
+#include<vector>
 //子类-教师类
 class teacher :public Identity
 {

@@ -108,9 +108,9 @@ void orderFile::update_Order()
 	{
 		ofs << "date:" << this->m_Order_Date[i]["date"] << " ";
 		ofs << "interval:" << this->m_Order_Date[i]["interval"] << " ";
-		ofs << "stuId:" << this->m_Order_Date[i]["Stu_Id"] << " ";
-		ofs << "stuName:" << this->m_Order_Date[i]["Stu_name"] << " ";
-		ofs << "roomId:" << this->m_Order_Date[i]["room"] << " ";
+		ofs << "stuId:" << this->m_Order_Date[i]["stuId"] << " ";
+		ofs << "stuName:" << this->m_Order_Date[i]["stuName"] << " ";
+		ofs << "roomId:" << this->m_Order_Date[i]["roomId"] << " ";
 		ofs << "status:" << this->m_Order_Date[i]["status"] << endl;
 	}
 	ofs.close();

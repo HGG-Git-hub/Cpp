@@ -97,7 +97,41 @@ void studentMenu(Identity*& student01)
 	}
 }
 
+//进入教师的子菜单
+/*引用的方式将管理员传入，通过父类指针接收*/
+void teacherMenu(Identity * &teacher01) 
+{
+	while (true)
+	{	
+		//父类指针调用调用管理员子菜单的函数
+		/*父类指针只能调用共有的属性和函数*/
+		teacher01->operMenu();
+		//将父类指针转化为为子类指针，调用子类其他的函数
+		teacher* tea = (teacher*)teacher01;
 
+		int select = 0;
+		cin >> select;
+		if (select == 1) 
+		{
+			//查看预约
+			tea->show_All_Order();
+		}
+		else if (select == 2) 
+		{
+			//审核预约
+			tea->valid_Order();
+		}
+		else
+		{
+			//注销登录
+			delete teacher01;
+			cout << "注销成功！" << endl;
+			system("pause");
+			system("cls");
+			return;
+		}
+	}
+}
 
 //登录功能   参数1：操作的文件名，参数2：操作的身份类型
 void LoginIn(string fileName, int type) 
@@ -176,7 +210,7 @@ void LoginIn(string fileName, int type)
 				//成功后在堆区创建该教师
 				person = new teacher(id, name, pwd);
 				//进入教师菜单
-				/*暂未实现*/
+				teacherMenu(person);
 				return;
 			}
 		}
@@ -254,10 +288,7 @@ int main()
 				break;
 			}
 		}
-		else 
-		{
-			cout << "请输入对应的数字！" << endl;
-		}
+		cout << "请输入对应的数字！" << endl;
 	}
 	system("pause");
 	return 0;
